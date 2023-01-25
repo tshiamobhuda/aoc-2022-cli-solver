@@ -1,4 +1,5 @@
-import {Args, Command, Flags, ux} from '@oclif/core'
+import color from '@oclif/color'
+import {Args, Command, Flags} from '@oclif/core'
 import factory from '../service/factory'
 
 enum Part {
@@ -38,11 +39,6 @@ export default class Day extends Command {
     const {args, flags} = await this.parse(Day)
     let result
 
-    // this.log(`running day command with args: [${args.day} | ${args.part}]`)
-    // this.log(`--test [-t] is set to: [${flags.test}]`)
-
-    ux.action.start('starting a process', 'initializing', {stdout: true})
-
     const solution = factory(args.day.toString(), {args, flags})
 
     if (args.part === Part.A && solution) {
@@ -53,9 +49,7 @@ export default class Day extends Command {
       result = await solution.partB()
     }
 
-    ux.action.stop()
-
-    this.log(`solution to AOC Day ${args.day} part ${args.part} is:`)
-    this.log(result)
+    this.log(color.whiteBright(`solution to AOC Day ${args.day} part ${args.part} is:`))
+    this.log(color.greenBright(result))
   }
 }
