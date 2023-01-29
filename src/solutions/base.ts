@@ -11,11 +11,11 @@ export class BaseSolution {
     this.testInput = getTestPuzzleInput(args.day)
   }
 
-  public async partA(): Promise<string|number> {
+  public partA(): Promise<string|number> {
     return Promise.reject(new Error('PartA not implemented.'))
   }
 
-  public async partB(): Promise<string|number> {
+  public partB(): Promise<string|number> {
     return Promise.reject(new Error('PartB not implemented.'))
   }
 }
