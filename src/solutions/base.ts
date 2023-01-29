@@ -18,4 +18,11 @@ export class BaseSolution {
   public partB(): Promise<string|number> {
     return Promise.reject(new Error('PartB not implemented.'))
   }
+
+  public getTestInputAsArray(): Array<string> {
+    return this
+    .testInput
+    .split('\n')
+    .filter((v: string) => v.length > 0)
+  }
 }
