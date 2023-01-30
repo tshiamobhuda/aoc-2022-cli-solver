@@ -7,6 +7,6 @@
     "ts"
   ],
   "recursive": true,
-  "reporter": "spec",
+  "reporter": "landing",
   "timeout": 60000
 }
